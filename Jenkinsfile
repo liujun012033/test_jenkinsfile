@@ -2,7 +2,10 @@ pipeline{
   agent any
   stages{
     stage(test){
-        sh 'ls -al'
+       steps {
+       sh 'ls -al'
+       }
+        
     }
   }
    post {
