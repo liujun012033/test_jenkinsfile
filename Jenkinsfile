@@ -1,7 +1,10 @@
 pipeline {
     agent {
         any
-        skipDefaultCheckout: true
+        // 禁止默认的代码拉取行为
+        options {
+            skipDefaultCheckout(true)
+        }
     }
     stages {
         stage('test') {
@@ -18,4 +21,4 @@ pipeline {
             echo 'Pipeline 执行失败，请检查日志！'
         }
     }
-}
+}    
