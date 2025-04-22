@@ -1,9 +1,11 @@
 pipeline {
     agent {
+        node{
         any
         // 禁止默认的代码拉取行为
         options {
             skipDefaultCheckout(true)
+        }
         }
     }
     stages {
