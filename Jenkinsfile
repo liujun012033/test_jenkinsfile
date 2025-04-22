@@ -1,24 +1,20 @@
-pipeline{
-  agent {
+pipeline {
+    agent {
         any
-        // 禁止默认的代码拉取行为
         skipDefaultCheckout: true
-  }
-  stages{
-    stage(test){
-       steps {
-       sh 'ls -al'
-       }
-        
     }
-  }
-   post {
+    stages {
+        stage('test') {
+            steps {
+                sh 'ls -al'
+            }
+        }
+    }
+    post {
         success {
-            // 构建成功后发送通知
             echo 'Pipeline 执行成功！'
         }
         failure {
-            // 构建失败后发送通知
             echo 'Pipeline 执行失败，请检查日志！'
         }
     }
