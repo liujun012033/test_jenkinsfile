@@ -1,19 +1,15 @@
+@Library('shared_jenkins') _
+import com.bne.utils.Utils
+
 pipeline {
-    agent    any 
+    agent any
     stages {
-        stage('test') {
+        stage('Test') {
             steps {
-                sh 'ls -al'
-                echo "hello world"
+                script {
+                    Utils.printHello(this)
+                }
             }
         }
     }
-    post {
-        success {
-            echo 'Pipeline 执行成功！'
-        }
-        failure {
-            echo 'Pipeline 执行失败，请检查日志！'
-        }
-    }
-}    
+}
