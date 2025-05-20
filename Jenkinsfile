@@ -9,7 +9,7 @@ pipeline {
                 script {
                     Utils.printHello(this)
                     deploy appName: 'my-app', environment: 'prod'
-                    def dockerTemplate = libraryResource 'com/company/templates/dockerfile.template'
+                    def dockerTemplate = libraryResource 'com/bne/templates/dockerfile.template'
                     writeFile file: 'Dockerfile', text: dockerTemplate.replace('${appJar}', 'my-app.jar')
                 }
             }
